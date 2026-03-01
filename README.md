@@ -1,50 +1,66 @@
-# Welcome to your Expo app 👋
+## Assignment 2 – Hardcoded Menu Server
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This project includes a simple Node.js/Express server and a React Native app.  
+The server is used to satisfy the Assignment 2 requirements.
 
-## Get started
+### Deliverables
 
-1. Install dependencies
+- **Single server file**: All backend code and menu data live in one file: `server.js`.
+- **Working catalog link**: A URL that returns the product catalog in text/JSON format.
+- **Updated README**: Simple instructions on how to run the server.
 
-   ```bash
-   npm install
-   ```
+### 1. Install dependencies
 
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+From the project root:
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Start the hardcoded menu server
 
-## Learn more
+The backend server for **Assignment 2** is in `server.js`.
 
-To learn more about developing your project with Expo, look at the following resources:
+- To start the server, run:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+node server.js
+```
 
-## Join the community
+The server will start on port **3001** and you will see:
 
-Join our community of developers creating universal apps.
+```text
+Server running on http://localhost:3001
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 3. Working links
+
+- **Catalog (Q1 + Q2)**  
+  Open this URL in your browser:
+
+  `http://localhost:3001/menu`
+
+  This returns a list of food items in JSON/text.  
+  Each item includes:
+  - `name`
+  - `price`
+  - `category`
+  - `image` (direct image URL from the web)
+
+- **Order logger (Q3)**  
+  POST endpoint used by the React Native app:
+
+  `http://localhost:3001/order`
+
+  Send a POST request with JSON (for example, from the app or Postman).  
+  The server will **print the order details to the terminal**, simulating a manager receiving the order.
+
+### 4. Optional: run the React Native app
+
+If you also want to run the mobile app UI:
+
+```bash
+npx expo start
+```
+
+Then open the app in Expo Go, an emulator, or the web browser as instructed in the Expo CLI output.
